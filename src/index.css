@@ -1,42 +1,121 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-family: 'Lucida Sans Unicode';
 }
 @media only screen and (min-width: 1025px){
     .small_width{
         visibility: hidden;
+    }
+    .search_nav_top{
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+    }
+    .content{
+        position: relative;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+    }
+   
+    .artists {
+        margin-top: 100px;
+        padding-left: 120px;
+    }
+    .popular_tracks_grid{
+        padding-left: 120px;
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 370px);
+        grid-template-rows: repeat(6,80px);
+        justify-content: center;
+    }
+    .footer_top{
+        height: 50%;
+        width: 1150px;
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .block{
+        background-color: #ebebeb;
+    }
+    .content_search{
+        position: relative;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+        margin-left: 30px;
+    }
+    .search_content{
+        display: grid;
+        grid-template-columns: 1200px auto;
+        width: 100%;
+        position: relative;
+        height: 100%;
     }
 }
 @media only screen and (max-width: 1024px){
     .huge_width{
         visibility: hidden;
     }
-}
-
-.app{
-    display: grid;
-    height: 100%;
-}
-
-header,
-footer{
-    background-color: black;
+    .search_nav_top{
+        margin-left: auto;
+        margin-right: auto;
+        width: 994px;
+    }
+    .content{
+        position: relative;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1024px;
+    }
+    .content_search{
+        position: relative;
+        height: 100%;
+        margin-right: auto;
+        width: 950px;
+        margin-left: 30px;
+    }
+    .artists {
+        margin-top: 100px;
+        padding-left: 40px;
+    }
+    .popular_tracks_grid{
+        display: grid;
+        grid-template-columns: repeat(3, 340px);
+        grid-template-rows: repeat(6, 150px);
+        justify-content: center;
+    }
+    .footer_top{
+        height: 50%;
+        width: 950px;
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .block{
+        background-color: #ebebeb;
+        visibility: hidden;
+    }
+    .search_content{
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
 }
 
 .disc{
     position: absolute;
     left: 0;
-}
-
-
-
-.content{
-    position: relative;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
 }
 
 .logo{
@@ -63,49 +142,38 @@ footer{
     top: 5px;
 }
 
-.prev_btn{
-    background-image: url(https://www.last.fm/static/images/player_controls.574646cbe24e.png);
+.btn{
     height: 50px;
     width: 40px;
-    background-position: -5px 0px;
     background-color: black;
     cursor:pointer;
     border: 0;
 }
+
+.prev_btn{
+    background-image: url(https://www.last.fm/static/images/player_controls.574646cbe24e.png); 
+    background-position: -5px 0px;
+}
 .play_btn{
-    height: 50px;
-    width: 40px;
     background-image: url(https://www.last.fm/static/images/player_controls.574646cbe24e.png);
     background-position: -45px 0px;
-    background-color: black;
-    cursor: pointer;
-    border: 0;
 }
 
 .header{
     position: sticky;
     top: 0;
     z-index: 3;
+    background-color: black;
 }
 
 .next_btn{
-    height: 50px;
-    width: 40px;
     background-image: url(https://www.last.fm/static/images/player_controls.574646cbe24e.png);
     background-position: -125px 0px;
-    background-color: black;
-    cursor: pointer;
-    border: 0;
 }
 
 .like_btn{
-    height: 50px;
-    width: 40px;
     background-image: url(https://www.last.fm/static/images/player_controls.574646cbe24e.png);
     background-position: -370px 0px;
-    background-color: black;
-    cursor: pointer;
-    border: 0;
 }
 
 .search_btn{
@@ -206,17 +274,10 @@ footer{
     list-style-type: none;
     justify-items: center;
 }
-
-.artists {
-    margin-top: 100px;
-    padding-left: 120px;
-}
 .artists_grid{
     display: grid;
-    grid-template-columns: repeat(6, 15%);
-    grid-template-rows: repeat(2, 60%);
-
-    margin-bottom: 100px;
+    grid-template-columns: repeat(6, 160px);
+    grid-template-rows: repeat(2, 250px);
 }
 
 .artist_photo{
@@ -233,42 +294,40 @@ footer{
 }
 
 .genres{
-    margin-top: 5px;
     color: gainsboro;
     font-size: small;
 }
 
-.popular_tracks_grid{
-    display: grid;
-    grid-template-columns: repeat(3, 400px);
-    grid-template-rows: repeat(6, 150px);
-    justify-content: center;
+.ptrack{
+    display: flex;
+    flex-direction: row;
 }
 
-.ptrack{
-    margin-top: 50px;
-    border-style: solid;
-    border-color: black;
+.cover{
+    width: 70px;
+    height: 70px;
+    background-color: black;
+    margin-right: 15px;
+}
+
+.track_info{
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+}
+
+.track_title{
+    margin-bottom: -8px;
 }
 
 .footer{
- 
+    background-color: black;
     height: 280px;
 }
 
 .footer_content{
     display: flex;
     flex-direction: column;
-}
-
-.footer_top{
-    height: 50%;
-    width: 1150px;
-    padding: 30px;
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .footer_bottom{
@@ -290,7 +349,7 @@ footer{
 .footer_link{
     text-decoration: none;
     color: white;
-    font-family: 'Barlow','Open Sans','Lucida Grande','Helvetica Neue','Helvetica,Arial','Sans-serif';
+    font-family: 'Sans-serif';
 
 }
 
@@ -309,7 +368,7 @@ footer{
 
 .footer_li{
     display: inline;
-    font-family: 'Barlow','Open Sans','Lucida Grande','Helvetica Neue','Helvetica,Arial','Sans-serif';
+    font-family: 'Sans-serif';
     margin-right: 10px;
 }
 
@@ -321,7 +380,7 @@ footer{
 
 .timezone{
     color: grey;
-    font-family: 'Barlow','Open Sans','Lucida Grande','Helvetica Neue','Helvetica,Arial','Sans-serif';
+    font-family: 'Sans-serif';
 
 }
 
@@ -332,7 +391,7 @@ footer{
 .footer_link_c{
     text-decoration: none;
     color: grey;
-    font-family: 'Barlow','Open Sans','Lucida Grande','Helvetica Neue','Helvetica,Arial','Sans-serif';
+    font-family: 'Sans-serif';
 }
 
 .scrobbler{
@@ -346,14 +405,6 @@ footer{
     font-size: xx-large;
 }
 
-.search_content{
-    display: grid;
-    grid-template-columns: 65% 35%;
-    width: 100%;
-    position: relative;
-    height: 100%;
-}
-
 .search_content_top::after{
     border-top: 1px solid #ebebeb;
     content: "";
@@ -364,18 +415,9 @@ footer{
     width: 100%;
 }
 
-.search_nav_top{
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
-}
-
-
-
 .search_nav_list{
     margin-top: 10px;
-    font-family: "Barlow","Open Sans","Lucida Grande","Helvetica Neue","Helvetica
-    ,Arial,"Sans-serif";
+    font-family: "Sans-serif";
     font-weight: 100;
     font-size: small;
 }
@@ -435,7 +477,7 @@ footer{
 .photo_square{
     background-color: black;
     width: 150px;
-    height: 15  0px;
+    height: 150px;
 }
 
 .search_results{
@@ -443,10 +485,15 @@ footer{
 }
 
 .square_info{
+    margin-top:100px;
     color: white;
-    margin-top: 120px;
     font-size: large;
     font-weight: bold;
+}
+
+.square_sec_info{
+    color: white;
+    font-size: 12px;
 }
 
 .track{
@@ -510,19 +557,6 @@ footer{
     margin-top: 5px;
 }
 
-.block{
-    background-color: #ebebeb;
-}
-
 .footer_main{
-    margin-top: 300px
-}
-
-.content_search{
-    position: relative;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
-    margin-left: 30px;
+    margin-top: 100px
 }
