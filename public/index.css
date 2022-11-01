@@ -440,8 +440,7 @@
     border: 0;
 }
 
-.clear_btn{
-    background-image: url(https://www.last.fm/static/images/icons/clear_field_16@2x.0cf2adb54a39.png);
+.btn16{
     background-size: 16px 16px;
     height: 16px;
     width: 16px;
@@ -453,17 +452,12 @@
     right: 5px;
 }
 
+.clear_btn{
+    background-image: url(https://www.last.fm/static/images/icons/clear_field_16@2x.0cf2adb54a39.png);
+}
+
 .form_search_btn{
     background-image: url(https://www.last.fm/static/images/icons/search_232323_16@2x.21ba32cf82c7.png);
-    background-size: 16px 16px;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    border: 0;
-    background-color: white;
-    position: relative;
-    top: 3px;
-    right: 5px;
 }
 
 .grid_square{
