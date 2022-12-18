@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Lucida Sans Unicode';
+    caret-color: transparent;
 }
 @media only screen and (min-width: 1025px){
     .small_width{
@@ -28,7 +29,7 @@
         padding-top: 20px;
         display: grid;
         grid-template-columns: repeat(3, 370px);
-        grid-template-rows: repeat(6,80px);
+        grid-template-rows: repeat(3,80px);
         justify-content: center;
     }
     .footer_top{
@@ -108,13 +109,25 @@
     .search_content{
         width: 100%;
         position: relative;
-        height: 100%;
     }
+}
+
+.none_display{
+    display: none;
+}
+
+.hidden{
+    visibility: hidden;
 }
 
 .disc{
     position: absolute;
     left: 0;
+}
+
+.app{
+    position: relative;
+    height: 1700px;
 }
 
 .logo{
@@ -268,6 +281,11 @@
     width: 50px;
 }
 
+.none-decoration{
+    text-decoration: none;
+    color: black;
+}
+
 .artists_list{
     display: flex;
     list-style-type: none;
@@ -283,7 +301,6 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: black;
     z-index: 1;
 }
 
@@ -294,7 +311,16 @@
 
 .genres{
     color: gainsboro;
-    font-size: small;
+    font-size: x-small;
+}
+
+.genre{
+    color: gainsboro;
+    display: inline;
+}
+
+.genre:hover{
+    text-decoration: underline;
 }
 
 .ptrack{
@@ -320,6 +346,9 @@
 }
 
 .footer{
+    position: absolute;
+    bottom: -280px;
+    width: 100%;
     background-color: black;
     height: 280px;
 }
@@ -400,6 +429,7 @@
     margin-left: 300px;
 }
 
+
 #search{
     font-size: xx-large;
 }
@@ -423,6 +453,7 @@
 
 .search_nav_item{
     display: inline;
+    cursor: pointer;
 }
 
 .search_form{
@@ -438,6 +469,7 @@
 .search_input{
     width: 60%;
     border: 0;
+    caret-color: black;
 }
 
 .btn16{
@@ -468,17 +500,25 @@
 }
 
 .photo_square{
-    background-color: black;
     width: 150px;
     height: 150px;
+    background-size: 150px 150px;
 }
 
 .search_results{
     margin-top: 100px;
 }
 
+.square{
+    position: relative;
+}
+
 .square_info{
-    margin-top:100px;
+    position: absolute;
+    bottom: 0;
+}
+
+.info_text{
     color: white;
     font-size: large;
     font-weight: bold;
@@ -491,12 +531,12 @@
 
 .track{
     display: flex;
-    width: 620px;
-    height: 32px;
+    width: 800px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 9px;
     padding-top: 9px;
+    position: relative;
 }
 
 .track::after{
@@ -522,7 +562,6 @@
 }
 
 .track_image{
-    background-image: url(https://lastfm.freetls.fastly.net/i/u/64s/c6f59c1e5e7240a4c0d427abd71f3dbb.jpg);
     background-size: 38px 38px;
     width: 38px;
     height: 38px;
@@ -538,16 +577,21 @@
 }
 
 .track_name{
-    margin-right: 100px;
+    position: absolute;
+    right: 380px;
+    font-size: x-small;
+    width: 300px;
 }
 
 .artist{
-    margin-right: 100px;
-    margin-top: 5px;
+    position: absolute;
+    right: 200px;
+    top: 5px;
 }
 
 .duration{
-    margin-top: 5px;
+    position: absolute;
+    right: 100px;
 }
 
 .footer_main{
