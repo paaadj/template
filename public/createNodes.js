@@ -1,3 +1,6 @@
+/**
+ * добавление карточки артиста в список популярных артистов
+ */
 function fillArtistCard(name, nameUrl, imgUrl, genres){
     let card = document.createElement("div");
     card.classList.add("artist_info")
@@ -43,6 +46,9 @@ function fillArtistCard(name, nameUrl, imgUrl, genres){
     popularArtists.append(card);
 }
 
+/**
+ * добавление карточки трека в список популярных треков
+ */
 function fillTrackCard(name, trackUrl, artistName, artistUrl, imgUrl, genres){
     let card = document.createElement("div");
     card.classList.add("ptrack");
@@ -75,6 +81,7 @@ function fillTrackCard(name, trackUrl, artistName, artistUrl, imgUrl, genres){
 
     let genreList = document.createElement("ul");
     genreList.className = "genres";
+    genreList.classList.add("margin_top10");
 
     genres.forEach(element => {
         let listLink = document.createElement("a");
@@ -96,6 +103,9 @@ function fillTrackCard(name, trackUrl, artistName, artistUrl, imgUrl, genres){
     popularTracks.append(card);
 }
 
+/**
+ * добавление карточки артиста в список найденных артистов
+ */
 function createArtistCard(name, img, url, listeners){
     if (img == "")
         img = "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
@@ -110,6 +120,10 @@ function createArtistCard(name, img, url, listeners){
     artistGrid.insertAdjacentHTML("beforeend", template);
 }
 
+
+/**
+ * добавление альбома в список найденных альбомов
+ */
 function createAlbumCard(name, img, url, artist, artistUrl){
     if (img == "")
         img = "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
@@ -124,6 +138,9 @@ function createAlbumCard(name, img, url, artist, artistUrl){
     albumsGrid.insertAdjacentHTML("beforeend", template);
 }
 
+/**
+ * добавление трека в список найденных треков
+ */
 function createTrackCard(name, url, img, artist, artistUrl){
     if (img == "")
         img = "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";

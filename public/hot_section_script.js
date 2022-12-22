@@ -6,6 +6,9 @@ const startHttp = 'http://ws.audioscrobbler.com/2.0/'
 
 start();
 
+/**
+ * Входная функция для загрузки всех данных и отображения их
+ */
 async function start(){
     const data = await getTopData();
     fillHotArtists(data.hotArtists, data.artistTopTags);
@@ -22,6 +25,9 @@ async function getData(method, artist, track, limit = "12"){
     return data.json();
 }
 
+/**
+ * Получение всех данных
+ */
 async function getTopData(){
     const data = {
         hotArtists: undefined,
@@ -50,18 +56,26 @@ async function getTopData(){
     return data;
 }
 
+/**
+ * Заполнение информации о топе артистов
+ */
 function fillHotArtists(hotArtists, tags){
     for(let i = 0; i< hotArtists.artists.artist.length; i++){
         showArtistInfo(hotArtists.artists.artist[i], tags[i])
     }
 }
-
+/**
+ * Заполнение информации о топе треков
+ */
 function fillHotTracks(hotTracks, tags){
     for(let i = 0; i< hotTracks.tracks.track.length; i++){
         showTrackInfo(hotTracks.tracks.track[i], tags[i])
     }
 }
 
+/**
+ * отображение артиста
+ */
 function showArtistInfo(artist, tags){
     try{
     fillArtistCard(
@@ -73,6 +87,9 @@ function showArtistInfo(artist, tags){
     catch(e){}
 }
 
+/**
+ * отображение трека
+ */
 function showTrackInfo(track, tags){
     try{
     fillTrackCard(

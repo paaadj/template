@@ -319,6 +319,10 @@
     display: inline;
 }
 
+.margin_top10{
+    margin-top: 10px;
+}
+
 .genre:hover{
     text-decoration: underline;
 }
@@ -511,22 +515,28 @@
 
 .square{
     position: relative;
+    background-size: 150px;
 }
 
 .square_info{
     position: absolute;
     bottom: 0;
+    text-shadow: 0 0 10px rgb(0 0 0 / 100%);
 }
 
 .info_text{
     color: white;
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
+    background: rgba(0, 0, 0, 0.2);
+	padding: 1px;
 }
 
 .square_sec_info{
     color: white;
     font-size: 12px;
+    background: rgba(0, 0, 0, 0.2);
+	padding: 1px;
 }
 
 .track{

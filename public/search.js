@@ -17,8 +17,10 @@ const startHttp = 'http://ws.audioscrobbler.com/2.0/'
 
 start();
 
+/**
+ * входная функция
+ */
 async function start(category = "Top Results"){
-    console.log(category);
     const searchText = (new URLSearchParams(location.search)).get("searchText") ?? "";
     if (searchText == ""){
         results.classList.add("hidden");
@@ -34,6 +36,10 @@ async function start(category = "Top Results"){
     fillTracksResult(data.tracks.results.trackmatches.track);
 }
 
+
+/**
+ * Отображение результата в зависимости от категории
+ */
 function showResult(category){
     switch(category){
         case "Top Results":
@@ -59,6 +65,14 @@ function showResult(category){
     }
 }
 
+/**
+ * получение данных
+ * @param {*} method 
+ * @param {*} category 
+ * @param {*} searchText 
+ * @param {*} limit 
+ * @returns 
+ */
 async function getData(method, category, searchText, limit = "10"){ 
     const data = await fetch(`${startHttp}?method=${method}&${category}=${searchText}&api_key=${apiKey}&limit=${limit}&format=json`);
     
@@ -69,6 +83,9 @@ async function getData(method, category, searchText, limit = "10"){
     return data.json();
 }
 
+/**
+ * отслеживание нажатия enter при поиске
+ */
 searchInput.addEventListener("keydown", (key) => {
     if(key.code === "Enter"){
         const searchText = searchInput.value;
@@ -76,21 +93,33 @@ searchInput.addEventListener("keydown", (key) => {
     }
 });
 
+/**
+ * отслеживание нажатия на кнопку поиска
+ */
 searchBtn.addEventListener("click", () => {
     const searchText = searchInput.value;
         window.location.href = `search.html?searchText=${searchText}`;
 })
 
+/**
+ * отслеживание нажатия на кнопку очистики текста в строке поиска
+ */
 clearBtn.addEventListener("click", () => {
     searchInput.value = "";
 })
 
+/**
+ * отслеживание нажатия на категории
+ */
 categories.addEventListener("click", (event) => {
     if(event.target.nodeName == "A"){
         showResult(event.target.textContent);
     }
 })
 
+/**
+ * функция получения всех нужных данных
+ */
 async function getAllData(searchText){
     const data = {
         artists: undefined,
@@ -112,12 +141,19 @@ async function getAllData(searchText){
     return data;
 }
 
+/**
+ * заполнение информации о найденных артистах
+ * @param {*} artists 
+ */
 function fillArtistsResult(artists){
     for(let i = 0; i < artists.length; i++){
         showArtistResult(artists[i]);
     }
 }
 
+/**
+ * отображение артиста 
+ */
 function showArtistResult(artist){
         createArtistCard(
             artist.name,
@@ -127,12 +163,18 @@ function showArtistResult(artist){
         );
 }
 
+/**
+ * заполнение информации о найденных альбомах
+ */
 function fillAlbumResult(album){
     for(let i = 0; i < album.length; i++){
         showAlbumResult(album[i]);
     }
 }
 
+/**
+ * отображение альбома
+ */
 function showAlbumResult(album){
     createAlbumCard(
         album.name,
@@ -143,12 +185,18 @@ function showAlbumResult(album){
     )
 }
 
+/**
+ * заполнение информации о найденных треках
+ */
 function fillTracksResult(tracks){
     for(let i = 0; i < tracks.length; i++){
         showTracksResult(tracks[i]);
     }
 }
 
+/**
+ * отображение трека
+ */
 function showTracksResult(track){
     createTrackCard(
         track.name,
