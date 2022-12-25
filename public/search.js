@@ -20,9 +20,9 @@ start();
 /**
  * входная функция
  */
-async function start(category = "Top Results"){
+async function start(category = "Top Results") {
     const searchText = (new URLSearchParams(location.search)).get("searchText") ?? "";
-    if (searchText == ""){
+    if (searchText == "") {
         results.classList.add("hidden");
         categories.classList.add("none_display");
         return false;
@@ -40,8 +40,8 @@ async function start(category = "Top Results"){
 /**
  * Отображение результата в зависимости от категории
  */
-function showResult(category){
-    switch(category){
+function showResult(category) {
+    switch (category) {
         case "Top Results":
             artists.classList.remove('none_display');
             albums.classList.remove('none_display');
@@ -73,11 +73,11 @@ function showResult(category){
  * @param {*} limit 
  * @returns 
  */
-async function getData(method, category, searchText, limit = "10"){ 
+async function getData(method, category, searchText, limit = "10") {
     const data = await fetch(`${startHttp}?method=${method}&${category}=${searchText}&api_key=${apiKey}&limit=${limit}&format=json`);
-    
-    if(data.ok == false){
-        throw new Error('Error: ' +  data.status);
+
+    if (data.ok == false) {
+        throw new Error('Error: ' + data.status);
     }
 
     return data.json();
@@ -87,7 +87,7 @@ async function getData(method, category, searchText, limit = "10"){
  * отслеживание нажатия enter при поиске
  */
 searchInput.addEventListener("keydown", (key) => {
-    if(key.code === "Enter"){
+    if (key.code === "Enter") {
         const searchText = searchInput.value;
         window.location.href = `search.html?searchText=${searchText}`;
     }
@@ -98,7 +98,7 @@ searchInput.addEventListener("keydown", (key) => {
  */
 searchBtn.addEventListener("click", () => {
     const searchText = searchInput.value;
-        window.location.href = `search.html?searchText=${searchText}`;
+    window.location.href = `search.html?searchText=${searchText}`;
 })
 
 /**
@@ -112,7 +112,7 @@ clearBtn.addEventListener("click", () => {
  * отслеживание нажатия на категории
  */
 categories.addEventListener("click", (event) => {
-    if(event.target.nodeName == "A"){
+    if (event.target.nodeName == "A") {
         showResult(event.target.textContent);
     }
 })
@@ -120,15 +120,15 @@ categories.addEventListener("click", (event) => {
 /**
  * функция получения всех нужных данных
  */
-async function getAllData(searchText){
+async function getAllData(searchText) {
     const data = {
         artists: undefined,
         albums: undefined,
         tracks: undefined
     }
     await Promise.all([
-        getData("artist.search", "artist", searchText, 10), 
-        getData("album.search", "album", searchText, 10), 
+        getData("artist.search", "artist", searchText, 10),
+        getData("album.search", "album", searchText, 10),
         getData("track.search", "track", searchText, 10)
     ]).then(
         ([data1, data2, data3]) => {
@@ -145,8 +145,8 @@ async function getAllData(searchText){
  * заполнение информации о найденных артистах
  * @param {*} artists 
  */
-function fillArtistsResult(artists){
-    for(let i = 0; i < artists.length; i++){
+function fillArtistsResult(artists) {
+    for (let i = 0; i < artists.length; i++) {
         showArtistResult(artists[i]);
     }
 }
@@ -154,20 +154,20 @@ function fillArtistsResult(artists){
 /**
  * отображение артиста 
  */
-function showArtistResult(artist){
-        createArtistCard(
-            artist.name,
-            artist.image[2]["#text"],
-            artist.url,
-            artist.listeners,
-        );
+function showArtistResult(artist) {
+    createArtistCard(
+        artist.name,
+        artist.image[2]["#text"],
+        artist.url,
+        artist.listeners,
+    );
 }
 
 /**
  * заполнение информации о найденных альбомах
  */
-function fillAlbumResult(album){
-    for(let i = 0; i < album.length; i++){
+function fillAlbumResult(album) {
+    for (let i = 0; i < album.length; i++) {
         showAlbumResult(album[i]);
     }
 }
@@ -175,7 +175,7 @@ function fillAlbumResult(album){
 /**
  * отображение альбома
  */
-function showAlbumResult(album){
+function showAlbumResult(album) {
     createAlbumCard(
         album.name,
         album.image[2]["#text"],
@@ -188,8 +188,8 @@ function showAlbumResult(album){
 /**
  * заполнение информации о найденных треках
  */
-function fillTracksResult(tracks){
-    for(let i = 0; i < tracks.length; i++){
+function fillTracksResult(tracks) {
+    for (let i = 0; i < tracks.length; i++) {
         showTracksResult(tracks[i]);
     }
 }
@@ -197,12 +197,12 @@ function fillTracksResult(tracks){
 /**
  * отображение трека
  */
-function showTracksResult(track){
+function showTracksResult(track) {
     createTrackCard(
         track.name,
         track.url,
         track.image[1]["#text"],
         track.artist,
-        track.url.slice(0,track.url.lastIndexOf("/")-2)
+        track.url.slice(0, track.url.lastIndexOf("/") - 2)
     )
 }
