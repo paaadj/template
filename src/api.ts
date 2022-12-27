@@ -6,7 +6,6 @@ import {
 } from "./types/types";
 
 const apiKey = 'c2ceda00f47600e2ef97b81e48611d8f';
-const startHttp = 'http://ws.audioscrobbler.com/2.0/'
 
 async function getData(
     method: string,
@@ -147,7 +146,7 @@ export async function getSearchData(
     method: string,
     category: string,
     searchText: string,
-    amount = 7,
+    amount: number,
 ) {
     const response = await fetch(
         `http://ws.audioscrobbler.com/2.0/?method=${method}&${category}=${searchText}&api_key=${apiKey}&limit=${amount}&format=json`
